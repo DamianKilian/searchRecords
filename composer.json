@@ -17,7 +17,8 @@
         "symfony/framework-bundle": "5.3.*",
         "symfony/proxy-manager-bridge": "5.3.*",
         "symfony/runtime": "5.3.*",
-        "symfony/yaml": "5.3.*"
+        "symfony/yaml": "5.3.*",
+        "joshtronic/php-loremipsum": "dev-master"
     },
     "config": {
         "optimize-autoloader": true,
@@ -63,6 +64,7 @@
         }
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
         "symfony/maker-bundle": "^1.36"
     }
 }

@@ -7,7 +7,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=RecordRepository::class)
- * @ORM\HasLifecycleCallbacks()
  */
 class Record
 {
@@ -33,14 +32,6 @@ class Record
      */
     private $created_at;
 
-    /**
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
-    */
-    public function updatedTimestamps(): void
-    {
-        $this->setCreatedAt(new \DateTimeImmutable('now'));
-    }
 
 
 
