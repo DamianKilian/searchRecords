@@ -15,3 +15,9 @@ Przykład:
 Zachęcam do korzystania z serwisów, interfejsów, repozytoriów.
 
 # setup
+1) git clone https://github.com/DamianKilian/searchRecords.git
+2) php bin/console doctrine:database:create
+3) php bin/console doctrine:migrations:migrate
+4) php bin/console doctrine:fixtures:load
+
+Parametry get wyglądają następująco: /?id=1&title=record%200&description=elit&created_at=2021-11-21
