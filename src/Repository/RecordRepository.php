@@ -19,6 +19,27 @@ class RecordRepository extends ServiceEntityRepository
         parent::__construct($registry, Record::class);
     }
 
+    /**
+     * @return Record[] Returns an array of Record objects
+    */
+    public function searchRecords($params)
+    {
+        $qb = $this->createQueryBuilder('r')->orderBy('r.id', 'ASC')->setMaxResults(10);
+        if(isset($params['id'])){
+            $qb->andWhere('r.id = :id')->setParameter('id', $params['id']);
+        }
+        if(isset($params['title'])){
+            $qb->andWhere('r.title = :title')->setParameter('title', $params['title']);
+        }
+        if(isset($params['description'])){
+            $qb->andWhere('r.description LIKE :description')->setParameter('description', '%'.$params['description'].'%');
+        }
+        if(isset($params['created_at'])){
+            $qb->andWhere('r.created_at = :created_at')->setParameter('created_at', $params['created_at']);
+        }
+        return $qb->getQuery()->getArrayResult();
+    }
+
     // /**
     //  * @return Record[] Returns an array of Record objects
     //  */
